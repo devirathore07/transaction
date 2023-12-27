@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block Details</title>
+  <style>
+    /* Add your styles here */
+  </style>
+</head>
+<body>
+  <div id="blockDetails">
+    <!-- Block details will be displayed here -->
+  </div>
+
+  <script>
+    // Function to retrieve parameters from the URL
+    function getURLParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Retrieve block details from the URL
+    const blockID = getURLParameter('blockID');
+    const blockName = getURLParameter('name');
+    const senderName = getURLParameter('sender');
+    const recieverName = getURLParameter('receiver');
+    const amount = getURLParameter('amount');
+    const blockHash = getURLParameter('hash');
+    const prevHash = getURLParameter('prevHash');
+    const nonce = getURLParameter('nonce');
+
+    // Display block details
+    const blockDetailsDiv = document.getElementById('blockDetails');
+    blockDetailsDiv.innerHTML = `
+      <h2>Block Details</h2>
+      <p>Block ID: ${blockID}</p>
+      <p>Block Name: ${blockName}</p>
+      <p>Sender Name: ${senderName}</p>
+      <p>Reciever Name: ${recieverName}</p>
+      <p>amount: ${amount}</p>
+      <p>Hash: ${blockHash}</p>
+      <p>Previous Hash: ${prevHash}</p>
+      <p>Nonce: ${nonce}</p>
+    `;
+  </script>
+</body>
+</html>
